@@ -1,0 +1,12 @@
+apiVersion: admissionregistration.k8s.io/v1alpha1
+kind: ValidatingAdmissionPolicyBinding
+metadata:
+  name: "replica-limit-binding"
+spec:
+  policyName: "replica-limit-policy"
+  paramRef:
+    name: "replica-limit-test.example.com"
+  matchResources: 
+    namespaceSelector:
+      matchLabels:
+        environment: test
